@@ -7,4 +7,8 @@
 
 [2&emsp;Concepts](docs/02_Concepts.md)
 
-[3&emsp;CLI](docs/03_CLI.md)
+[3&emsp;Command Line Interfaces (CLI)](docs/03_CLI.md)
+
+[4&emsp;Setting up a ROS2 Project](docs/04_Project.md)
+
+[5&emsp;Coding a Basic ROS2 Node](docs/05_Node.md)
