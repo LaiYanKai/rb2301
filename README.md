@@ -12,3 +12,5 @@
 [4&emsp;Setting up a ROS2 Project](docs/04_Project.md)
 
 [5&emsp;Coding a Basic ROS2 Node](docs/05_Node.md)
+
+[6&emsp;Logging and Recording](docs/06_Logging_and_Recording.md)
