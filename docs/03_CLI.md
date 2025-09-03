@@ -85,7 +85,7 @@ A node would be a ministry in the country, or a department in the school.
 | 2. | `ros2 interface list` | Lists all interface types (topic message types, service message types, action message types) that are currently known. |
 | 3. | `ros2 interface package a_pkg` | Lists all interfaces (their types) provided in a known package `a_pkg`. |
 | 4. | `ros2 interface packages` | Lists all packages that are known to provide interfaces. |
-| 5. | `ros2 interface type an_interface_type` | Shows all the fields in an interface type `an_interface_type`. |
+| 5. | `ros2 interface show an_interface_type` | Shows all the fields in an interface type `an_interface_type`. |
 
 In ROS2, interfaces are message templates for topics, services and actions. They do not contain data, but formalizes the way data should be organized in a message.
 
