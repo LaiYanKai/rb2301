@@ -72,7 +72,7 @@ The base template of a Python ROS2 Node is provided below. There are five locati
 ```python
 # 1. IMPORT
 import rclpy
-from rclpy import Node
+from rclpy.node import Node
 
 # NODE CLASS
 class SomeROSNode(Node):
@@ -161,7 +161,7 @@ Suppose we want to run a loop every 0.5 seconds and print out the number of seco
 ```python
 # 1. IMPORT
 import rclpy
-from rclpy import Node
+from rclpy.node import Node
 
 # NODE CLASS
 class TimingNode(Node):
@@ -267,7 +267,7 @@ Suppose the x-coordinate in the message has to be printed (see https://docs.ros.
 ```python
 # 1. IMPORT
 import rclpy
-from rclpy import Node
+from rclpy.node import Node
 from nav_msgs.msg import Odometry
 
 # NODE CLASS
@@ -373,7 +373,7 @@ Suppose a goal point at $(1.0,-1.5,0.0)$ has to be published to a topic `/goal` 
 ```python
 # 1. IMPORT
 import rclpy
-from rclpy import Node
+from rclpy.node import Node
 from geometry_msgs.msg import Point
 
 # NODE CLASS
@@ -479,7 +479,7 @@ Suppose a `Planner` node receives a request for a path between a start point and
 ```python
 # 1. IMPORT
 import rclpy
-from rclpy import Node
+from rclpy.node import Node
 from nav_msgs.srv import GetPlan
 
 # NODE CLASS
@@ -606,7 +606,7 @@ Therefore, the service request must be **non-blocking** especially if there is a
 ```python
 # 1. IMPORT
 import rclpy
-from rclpy import Node
+from rclpy.node import Node
 from nav_msgs.srv import GetPlan
 
 # NODE CLASS
@@ -725,7 +725,7 @@ Suppose we want to read a double parameter called `speed`, which should have a d
 ```python
 # 1. IMPORT
 import rclpy
-from rclpy import Node
+from rclpy.node import Node
 
 # NODE CLASS
 class SomeNode(Node):
