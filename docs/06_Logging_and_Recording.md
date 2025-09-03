@@ -223,7 +223,7 @@ The example below shows how the functions above can be used:
 ```python
 from rclpy.node import Node
 
-class SomeNodeA(Node)
+class SomeNodeA(Node):
     def __init__(self):
         super.__init__('some_node_a')
         self.timer = self.create_timer(0.5, self.timer_callback)
@@ -303,7 +303,7 @@ The log level of a node can be changed in either one of two ways. The first way 
     from rclpy.node import Node
     from rclpy.logging import set_logger_level, LoggingSeverity
 
-    class SomeNodeA(Node)
+    class SomeNodeA(Node):
         def __init__(self):
             super.__init__('some_node_a')
             set_logger_level(self.get_logger().name, LoggingSeverity.INFO)
@@ -371,7 +371,7 @@ The file will be written once the node stops running.
 ```python
 from rclpy.node import Node
 
-class SomeNodeA(Node)
+class SomeNodeA(Node):
     def __init__(self):
         super.__init__('some_node_a')
         self.f = open('recorded.txt', 'w')

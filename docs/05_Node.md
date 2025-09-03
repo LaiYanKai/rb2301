@@ -137,7 +137,7 @@ The following beginner Python syntax is suggested:
                 <li><code>duration</code>: The time interval in seconds to run the callback. If an interval is missed, the callback will not be called for the interval.</li>
                 <li><code>self.timer_callback</code>: The callback to at every interval.</li>
             </ul>
-            <pre lang="python">self.timer = create_timer(duration, self.timer_callback)</pre></td>
+            <pre lang="python">self.timer = self.create_timer(duration, self.timer_callback)</pre></td>
     </tr>
     <tr>
         <td>4.</td>
@@ -239,7 +239,7 @@ packages=find_packages(
                 <li><code>self.topic_a_sub_callback</code>: The callback method below. The callback is called once on each message that arrives from the topic.</li>
                 <li><code>10</code>: The queue size, which is the maximum number of past messages to store by the subscriber if the computer is too busy to call the subscriber callbacks (depends on QoS settings).</li>
             </ul>
-            <pre lang="python">self.topic_a_sub = create_subscription(MsgTypeA, '/topic_a', self.topic_a_sub_callback, 10)</pre></td>
+            <pre lang="python">self.topic_a_sub = self.create_subscription(MsgTypeA, '/topic_a', self.topic_a_sub_callback, 10)</pre></td>
     </tr>
     <tr>
         <td>4.</td>
@@ -347,7 +347,7 @@ packages=find_packages(
                 <li><code>'/topic_a'</code>: The string of the topic name. </li>
                 <li><code>10</code>: The queue size, which is the maximum number of past messages to store if subscribers were not yet active and are unable to receive messages (depends on QoS settings). </li>
             </ul>
-            <pre lang="python">self.topic_a_pub = create_publisher(MsgTypeA, '/topic_a', 10)</pre></td>
+            <pre lang="python">self.topic_a_pub = self.create_publisher(MsgTypeA, '/topic_a', 10)</pre></td>
     </tr>
     <tr>
         <td>4.</td>
@@ -453,7 +453,7 @@ packages=find_packages(
                 <li><code>self.service_a_callback</code>: The callback method is called when a request is received.</li>
             </ul>
 <pre lang="python">
-self.service_a_srv = create_service(SrvTypeA, '/service_a', self.service_a_callback)
+self.service_a_srv = self.create_service(SrvTypeA, '/service_a', self.service_a_callback)
 </pre>
 </td>
     </tr>
@@ -568,7 +568,7 @@ service_a_future = None
                 <li><code>'/service_a'</code>: The string of the service name. </li> 
             </ul>
 <pre lang="python">
-self.service_a_cli = create_client(SrvTypeA, '/service_a')
+self.service_a_cli = self.create_client(SrvTypeA, '/service_a')
 </pre>
 </td>
     </tr>
