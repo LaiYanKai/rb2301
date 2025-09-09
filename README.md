@@ -14,3 +14,7 @@
 [5&emsp;Coding a Basic ROS2 Node](docs/05_Node.md)
 
 [6&emsp;Logging and Recording](docs/06_Logging_and_Recording.md)
+
+[7&emsp;Quality of Service](docs/07_Quality_of_Service.md)
+
+[8&emsp;ROS2 Topics with Quality of Service](docs/08_Advanced_Topics.md)
