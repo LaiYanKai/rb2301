@@ -227,7 +227,7 @@ A latched connection persists some published messages so that late-joining subsc
     3. In the node constructor, create the subscriber handle `latch_sub` that uses the profile:
 
         ```python
-        self.latch_sub = self.create_publisher(
+        self.latch_sub = self.create_subscription(
             Header, '/latch', self.latch_sub_callback, qos_profile_latch
         )
         ```
