@@ -100,7 +100,7 @@ if __name__ == '__main__':
 
 | | Where | Purpose |
 |-|-|-|
-| 1. | **Import** | Import statements, to be appended after the first two import lines. Any libraries that are imported must be included in `setup.py` and `package.xml`. |
+| 1. | **Import** | Import statements, to be appended after the first two import lines. Any libraries that are imported must be included in `package.xml`. |
 | 2. | **Node Properties** | The node is implemented as a class derived from the ROS2 `Node` class. Put variables at this location if the variables has to be read and written across different callbacks. |
 | 3. | **Node Constructor** | Initializes handles (variables) to timers, subscribers, publishers, service clients, service servers, etc. |
 | 4. | **Node Callbacks** | Place callback functions here. Callback functions are class methods, like the `__init__` constructor. |
@@ -206,15 +206,6 @@ The following beginner Python syntax is suggested:
         <td>
         Import the message class.
         <pre lang="python">from lib_a.msg import MsgTypeA</pre>
-        In <code>setup.py</code>, append the library into the <code>include=</code> keyword argument.
-<pre lang="python">
-packages=find_packages(
-    include=[
-        # ...
-        'lib_a',
-    ]
-),
-</pre>
         In <code>package.xml</code>, add the <code>&lt;depend&gt;</code> tag for the library.
 <pre lang="xml">
 &lt;depend&gt;lib_a&lt;/depend&gt;
@@ -299,7 +290,7 @@ if __name__ == '__main__':
     main()
 ```
 
-Then, add `nav_msgs` library to `setup.py` and `package.xml`.
+Then, add the `nav_msgs` library to `package.xml`.
 
 ## 2.3&emsp;Create a Basic Topic Publisher
 Suppose we want to publish a `lib_a/msg/MsgTypeA` message to the topic `/topic_a`.
@@ -316,15 +307,6 @@ The following beginner Python syntax is suggested:
         <td>
         Import the message class.
         <pre lang="python">from lib_a.msg import MsgTypeA</pre>
-        In <code>setup.py</code>, append the library into the <code>include=</code> keyword argument.
-<pre lang="python">
-packages=find_packages(
-    include=[
-        # ...
-        'lib_a',
-    ]
-),
-</pre>
         In <code>package.xml</code>, add the <code>&lt;depend&gt;</code> tag for the library.
 <pre lang="xml">
 &lt;depend&gt;lib_a&lt;/depend&gt;
@@ -405,7 +387,7 @@ def main(args=None):
 if __name__ == '__main__':
     main()
 ```
-Add the `geometry_msgs` library into the `setup.py` and `package.xml`.
+Add the `geometry_msgs` library into `package.xml`.
 
 ## 2.4&emsp;Create a Basic Service Server
 Suppose we want to receive service requests from the service `/service_a` with the service interface type `lib_a/srv/SrvTypeA`.
@@ -422,15 +404,6 @@ The following beginner Python syntax is suggested:
         <td>
         Import the message class:
         <pre lang="python">from lib_a.srv import SrvTypeA</pre>
-        In <code>setup.py</code>, append the library into the <code>include=</code> keyword argument.
-<pre lang="python">
-packages=find_packages(
-    include=[
-        # ...
-        'lib_a',
-    ]
-),
-</pre>
         In <code>package.xml</code>, add the <code>&lt;depend&gt;</code> tag for the library.
 <pre lang="xml">
 &lt;depend&gt;lib_a&lt;/depend&gt;
@@ -508,7 +481,7 @@ if __name__ == '__main__':
     main()
 ```
 
-Add the `nav_msgs` library into `setup.py` and `package.xml`.
+Add the `nav_msgs` library into the `package.xml`.
 
 ## 2.5&emsp;Create a Basic Service Client
 
@@ -534,15 +507,6 @@ The following beginner Python syntax is suggested:
         <td>
         Import the message class:
         <pre lang="python">from lib_a.srv import SrvTypeA</pre>
-        In <code>setup.py</code>, append the library into the <code>include=</code> keyword argument.
-<pre lang="python">
-packages=find_packages(
-    include=[
-        # ...
-        'lib_a',
-    ]
-),
-</pre>
         In <code>package.xml</code>, add the <code>&lt;depend&gt;</code> tag for the library.
 <pre lang="xml">
 &lt;depend&gt;lib_a&lt;/depend&gt;
@@ -648,7 +612,7 @@ if __name__ == '__main__':
     main()
 ```
 
-Add the `nav_msgs` library into `setup.py` and `package.xml`.
+Add the `nav_msgs` library into `package.xml`.
 
 ## 2.6&emsp;Read Parameters
 In this section, we try to read a parameter from the same node. 
@@ -735,7 +699,7 @@ class SomeNode(Node):
     def __init__(self):
         super().__init__('some_node')
         # 3. NODE CONSTRUCTOR
-        self.speed_param = self.declare_parameter('speed', '2.0')
+        self.speed_param = self.declare_parameter('speed', 2.0)
 
     # 4. NODE CALLBACKS
 
