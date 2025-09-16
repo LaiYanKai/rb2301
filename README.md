@@ -18,3 +18,9 @@
 [7&emsp;Quality of Service](docs/07_Quality_of_Service.md)
 
 [8&emsp;ROS2 Topics with Quality of Service](docs/08_Advanced_Topics.md)
+
+[9a&emsp;Advanced Parameters (Same Node)](docs/09a_Advanced_Parameters.md)
+
+[9b&emsp;Parameter Services (Other Nodes)](docs/09b_Parameter_Services.md)
+
+[10&emsp;Launch Files and Bash Scripts](docs/10_Launch_and_Bash.md)
