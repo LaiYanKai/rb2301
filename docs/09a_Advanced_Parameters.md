@@ -548,7 +548,7 @@ if __name__ == '__main__':
 
 1. Design a node called `parameters` that can be run with `ros2 run rb2301_tutorial prms`.
 
-2. In the node constructor, declare the following parameters by with the following initial values:
+2. In the node constructor, declare the following parameters with the following initial values:
     
     | Parameter | Type | Initial Value |
     |-|-|-|
@@ -816,14 +816,14 @@ node_node_a = Node(
 
 ## 4.6&emsp;Tasks
 
-Design a YAML file `prms.yaml`, placed in the `params` directory of the `rb2301_tutorial` package. The file must contain the following parameter values.:
+Design a YAML file `prms.yaml`, placed in the `params` directory of the `rb2301_tutorial` package. The file must contain the following parameter values for the `parameters` node created in the previous section:
 
 | Parameter | Value |
 |-|-|
-| `bool_v` | `True` if last numeric digit is even, `False` if odd. (e.g. `True` for `456X`) |
-| `int_v` | Last numeric digit (e.g. `6` for `456X`). |
-| `dbl_v` | Last two numeric digits (e.g. `56` for `456X`). |
-| `str_v` | Your last name / surname (e.g. `Doe` for `John Doe`). |
+| `values.bool_v` | `True` if last numeric digit is even, `False` if odd. (e.g. `True` for `456X`) |
+| `values.int_v` | Last numeric digit (e.g. `6` for `456X`). |
+| `values.dbl_v` | Last two numeric digits (e.g. `56` for `456X`). |
+| `values.str_v` | Your last name / surname (e.g. `Doe` for `John Doe`). |
 | `bool_arr_v` | A two-element array based on the last two numeric digits. If the digit is even, then the corresponding entry is `True`, otherwise it is `False` (e.g. `[False, True]` for `456X`). |
 | `int_arr_v` | A three-element array based on the last three numeric digits (e.g. `[4,5,6]` for `456X`.) |
 | `dbl_arr_v` | A three-element array based on the last three numeric digits, divided by 2 (e.g. `[2.0, 2.5, 3.0]` for `456X`) | 
@@ -833,6 +833,6 @@ Design a YAML file `prms.yaml`, placed in the `params` directory of the `rb2301_
 
 **[Q4b]** What are the new line(s) to add to the `setup.py` package so that the `params` folder and all of its contents are installed? Remember to build the workspace if the YAML file is created for the first time.
 
-**[Q4c]** What is the `ros2 run` CLI to run the node with this parameter file? Assume that the terminal is already in the workspace.
+**[Q4c]** What is the `ros2 run` CLI to run the node `parameters`, created in the previous section, with this parameter file? Assume that the terminal is already in the workspace.
 
 **[Q4d]** Cut and paste the entire contents of the YAML file.
