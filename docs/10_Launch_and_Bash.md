@@ -389,6 +389,12 @@ The bash scripts shown in this section should be stored under the workspace dire
 
 ## 3.2&emsp;How to Run
 
+Make sure to assign permissions to the file using `chmod`. Permissions only need to be **assigned once** unless the file is renamed or replaced:
+```bash
+cd workspace_a
+chmod +x bash_script.sh
+```
+
 Run the bash script from the workspace with the following command, replacing `bash_script` with the relevant script name:
 
 ```bash
