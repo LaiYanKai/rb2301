@@ -794,7 +794,7 @@ As such, only the `integer_a` entry under `node_b` is loaded.
 Suppose that the file `params_a.yaml` is stored in the `params` directory in the package `pkg_a`. Let the workplace be `workspace_a`.
 To load it with the `ros2 run` CLI (make sure to source first),
 ```bash
-ros2 run pkg_a node_a --ros-args --param-file workspace_a/src/pkg_a/params/params_a.yaml
+ros2 run pkg_a node_a --ros-args --params-file workspace_a/src/pkg_a/params/params_a.yaml
 ```
 Of course, the YAML file path is relative to the directory where the terminal is currently in.
 
@@ -834,5 +834,6 @@ Design a YAML file `prms.yaml`, placed in the `params` directory of the `rb2301_
 **[Q4b]** What are the new line(s) to add to the `setup.py` package so that the `params` folder and all of its contents are installed? Remember to build the workspace if the YAML file is created for the first time.
 
 **[Q4c]** What is the `ros2 run` CLI to run the node `parameters`, created in the previous section, with this parameter file? Assume that the terminal is already in the workspace.
+
 
 **[Q4d]** Cut and paste the entire contents of the YAML file.
