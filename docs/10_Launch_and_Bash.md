@@ -425,7 +425,8 @@ To cleanly build the workspace, in a bash script `clean_bd.sh` (name is up to yo
 ```bash
 #!/bin/bash
 cd workspace_a
-colcon build --symlink-install --cmake-clean-first
+rm -rf build install log # removes these three folders
+colcon build --symlink-install
 ```
 
 ### 3.3.3&emsp;Run Script
@@ -472,3 +473,4 @@ To launch nodes from a launch file, in a bash script `launch.sh` (name is up to 
 source workspace_a/install/setup.bash
 ros2 launch pkg_a launch_file_a.launch.py
 ```
+
