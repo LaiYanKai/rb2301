@@ -336,24 +336,24 @@ ld.add_action(node_node_a)
 
 2. Create a launch file `sim.launch.py` in the `rb2301_tutorial` package.
 
-    **[Q2a]** What is the code to add to `setup.py` so that the launch folder and its contents are installed? Remember to build.
+    **[Q1a]** What is the code to add to `setup.py` so that the launch folder and its contents are installed? Remember to build.
 
 3. In the launch file, create a new launch argument `world` with the default value `test.sdf`.
 
-    **[Q2b]** What is the code to create the argument?
+    **[Q1b]** What is the code to create the argument?
 
 4. In the launch file, insert code to launch the similarly-named `sim.launch.py` launch file from the `rb2301_bringup` package. 
 The `rb2301_bringup`'s launch file has a similarly-named `world` argument, which should take the value of the current launch file's `world` argument.
 
-    **[Q2c]** What is the code to launch this launch file with the `world` argument substituted with the current file's `world` argument?
+    **[Q1c]** What is the code to launch this launch file with the `world` argument substituted with the current file's `world` argument?
 
 5. Launch the `sim.launch.py` launch file from the `rb2301_tutorial` package. This should launch Gazebo with a robot in it, along with some basic shapes as obstacles.
 
-    **[Q2d]** What is the CLI to launch this file?
+    **[Q1d]** What is the CLI to launch this file?
 
 6. Launch the `sim.launch.py` launch file from the `rb2301_tutorial` package, with the `world` argument set to `empty.sdf` using the CLI. This should launch Gazebo with the robot and without obstacles.
 
-    **[Q2e]** What is the CLI to launch this file with the argument?
+    **[Q1e]** What is the CLI to launch this file with the argument?
 
 7. Create a node called `sim` that can be run with `ros2 run rb2301_tutorial sim`. 
 
@@ -361,11 +361,11 @@ The `rb2301_bringup`'s launch file has a similarly-named `world` argument, which
 
     2. Create a timer callback that loops every 0.2 seconds and that prints the robot's $x$ and $y$ coordinates from the `/odom` topic.
 
-    **[Q2f]** Cut and paste the contents of the Python file.
+    **[Q1f]** Cut and paste the contents of the Python file.
 
 8. In `sim.launch.py` from the `rb2301_tutorial` package, run the node `sim`.
 
-    **[Q2g]** What is the code to run this node?
+    **[Q1g]** What is the code to run this node?
 
 # 3&emsp;Bash Script
 A bash script is a script that uses the Ubuntu terminal syntax to automate commands.
@@ -425,8 +425,7 @@ To cleanly build the workspace, in a bash script `clean_bd.sh` (name is up to yo
 ```bash
 #!/bin/bash
 cd workspace_a
-rm -rf build install log # removes these three folders
-colcon build --symlink-install
+colcon build --symlink-install --cmake-clean-first
 ```
 
 ### 3.3.3&emsp;Run Script
@@ -473,4 +472,3 @@ To launch nodes from a launch file, in a bash script `launch.sh` (name is up to 
 source workspace_a/install/setup.bash
 ros2 launch pkg_a launch_file_a.launch.py
 ```
-

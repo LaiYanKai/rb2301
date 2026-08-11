@@ -102,7 +102,7 @@ The topic monitor can subscribe to a topic, and display information about the to
     Other topics can be monitored. As of writing, monitoring some of the topics may lead to crashes.
 
 4. Press the arrow keys in terminal `B` to teleoperate the turtle, so that the data is reflected in RQt. 
-    - **[Q2a]** Screenshot the RQt window with the last message clearly seen on the topic monitor.
+    - **[Q1a]** Screenshot the RQt window with the last message clearly seen on the topic monitor.
 
 5. When done, close the pane containing the topic monitor with the red `Close` button on the top-right. Do not close the window.
 
@@ -139,7 +139,7 @@ The plot can be used to quickly plot a field in a topic.
 
 
 
-5. **[Q2b]** Screenshot the plot showing **all inputs from the start** for the following data fields from the `/turtle1/cmd_vel` topic:
+5. **[Q1b]** Screenshot the plot showing **all inputs from the start** for the following data fields from the `/turtle1/cmd_vel` topic:
     - Linear $x$ velocity.
     - Linear $y$ velocity.
     - Angular $z$ velocity.
@@ -158,7 +158,7 @@ The node graph is to quickly visualize all nodes that are currently running in t
 
     ![](img/rb0625.png)
 
-4. **[Q2c]** Screenshot the node graph when `Nodes/Topics (all)` is selected in the dropdown box on the top-left.
+4. **[Q1c]** Screenshot the node graph when `Nodes/Topics (all)` is selected in the dropdown box on the top-left.
 
 
 
@@ -188,11 +188,11 @@ The compressed data cannot be used directly for plotting.
     ```bash
     ros2 run turtlesim turtle_teleop_key
     ```
-3. **[Q3a]** In a terminal `C`, determine the command that will record all topics into a directory `bag_a`, and begin recording.
+3. **[Q2a]** In a terminal `C`, determine the command that will record all topics into a directory `bag_a`, and begin recording.
 
 4. Stop the recording in terminal `C`, and stop the teleoperation node in terminal `B`.  
 
-5. **[Q3b]** In terminal `C`, determine the command that will playback all the topics from `bag_a`. Verify that the turtle is moving from the playback.
+5. **[Q2b]** In terminal `C`, determine the command that will playback all the topics from `bag_a`. Verify that the turtle is moving from the playback.
     
 6. Remove the `bag_a` directory once you are done.
 
@@ -313,7 +313,7 @@ The log level of a node can be changed in either one of two ways. The first way 
 Other options like ignoring the first call, throttling the calls (i.e. reducing the rate of logging to avoid repeated information), and output formatting can be found at https://docs.ros.org/en/jazzy/Tutorials/Demos/Logging-and-logger-configuration.html.
 
 ## 4.6&emsp;Tasks
-[Q4a] to [Q4g] assume that the logging level of the node is not set and the default logging level of `INFO` is used.
+Q3a to Q3g assume that the logging level of the node is not set and the default logging level of `INFO` is used.
 
 1. Create a `logger.py` Python script in the `rb2301_tutorial` package.
     1. In this file, create a new ROS2 node. Label the node as `logger` in the constructor and use the class name `Logger`.
@@ -322,25 +322,25 @@ Other options like ignoring the first call, throttling the calls (i.e. reducing 
 2. Create a timer that calls a callback every 0.5s.
 
 3. In the **timer callback** of the `logger` node, determine the Python code to
-    - **[Q4a]** Log a message `'this is debug'` on the `DEBUG` level.
-    - **[Q4b]** Log a counter on the `INFO` level. The counter increments everytime the timer callback is run.
-    - **[Q4c]** Log a message `'warn i'` on the `WARN` level, where `i` represents the value of the counter above.
-    - **[Q4d]** Log a message `'an error'` on the `ERROR` level.
+    - **[Q3a]** Log a message `'this is debug'` on the `DEBUG` level.
+    - **[Q3b]** Log a counter on the `INFO` level. The counter increments everytime the timer callback is run.
+    - **[Q3c]** Log a message `'warn i'` on the `WARN` level, where `i` represents the value of the counter above.
+    - **[Q3d]** Log a message `'an error'` on the `ERROR` level.
 
-4. **[Q4e]** Run the node until the terminal output shows at least **three sets of messages** from each of the four logging levels (i.e. the callback is run three times). Screenshot the terminal output showing these messages.
+4. **[Q3e]** Run the node until the terminal output shows at least **three sets of messages** from each of the four logging levels (i.e. the callback is run three times). Screenshot the terminal output showing these messages.
 
-5. **[Q4f]** Locate the log file, open it, and cut and paste its contents. Let `directory_a` be the path of the directory contain the log file and `file_a.log` be the log file. The following CLI command can be used to print out the log file's contents onto the terminal:
+5. **[Q3f]** Locate the log file, open it, and cut and paste its contents. Let `directory_a` be the path of the directory contain the log file and `file_a.log` be the log file. The following CLI command can be used to print out the log file's contents onto the terminal:
     ```bash
     cat directory_a/file_a.log
     ```
 
-6. **[Q4g]** Which logging level is currently missing from both the printed output and the log file? 
+6. **[Q3g]** Which logging level is currently missing from both the printed output and the log file? 
 
-7. **[Q4h]** Determine the Python code to change the logging level of the `logger` node to `WARN`. The code can be placed in the node's constructor. What is the Python code?
+7. **[Q3h]** Determine the Python code to change the logging level of the `logger` node to `WARN`. The code can be placed in the node's constructor. What is the Python code?
 
-8. **[Q4i]** Run the node with this new piece of code, which runs the node at the `WARN` logging level. Find the new log file and cut and paste its contents.
+8. **[Q3i]** Run the node with this new piece of code, which runs the node at the `WARN` logging level. Find the new log file and cut and paste its contents.
 
-9. **[Q4j]** Which logging level is currently missing from both the printed output and the log file?
+9. **[Q3j]** Which logging level is currently missing from both the printed output and the log file?
 
 # 5&emsp;Python Functions
 The Python functions are generally much easier to use for troubleshooting code and collecting data in simple projects. 
@@ -394,12 +394,13 @@ if __name__ == '__main__':
 ## 5.3&emsp;Tasks
 1. Create a `recorder.py` Python script in the `rb2301_tutorial` package.
     1. In this file, create a new ROS2 node. Label the node as `recorder` in the constructor and use the class name `Recorder`.
-    2. Remember to change the `setup.py`.
+    2. In the node, implement a timer that calls a callback every 0.5 seconds.
+    3. Remember to change the `setup.py`.
 
 2. Create a subscriber to the `/turtle1/pose` topic.
 
 3. In the **subscriber callback**, record the `x`, `y`, and `theta` data fields from every received message into a `data.txt` file. The data should be recorded in tabular format. 
-The first column should be `x`, the second column should be `y`, and the third column should be `theta`. 
+The first column should be `x`, the second column should be `y`, and the third column should be `z`. 
 A new row should be created for every message.
 
 4. Make sure that the `tutorial` node is modified based on the tasks in the previous chapter in [05_Node.md](05_Node.md). Crucially, the turtle should **move back and forth** when the `tutorial` node is run.
@@ -417,6 +418,6 @@ A new row should be created for every message.
     2. Insert a figure/chart by selecting the scatter plot. 
     3. Plot each column as one line in the same figure/chart.
     4. Insert a legend to label the three lines.
-    5. **[Q5a]** Screenshot the figure/chart.
+    5. **[Q4a]** Screenshot the figure/chart.
     
-7. **[Q5b]** Cut and paste the contents of `recorder.py`.
+7. **[Q4b]** Cut and paste the contents of `recorder.py`.

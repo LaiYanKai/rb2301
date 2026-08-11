@@ -89,7 +89,7 @@ In ROS2, there are other concepts that are important for robotics development. T
 |**Description formats**| Specifically, the URDF and SDF formats, for defining the coordinate frames, joint types, and initial transformations on a robot. The SDF format is maintained by the Gazebo simulator developers, which builds upon the URDF by describing sensor behaviors for simulation. | 
 |**Simulations**| The caveats of setting up a simulation files for simulation. |
 |**Sensor Interfacing**| The caveats of serializing data over data ports. |
-|**Bringups**| The convention of starting an entire robot hardware and the names for certain common functionalities (`teleop`, `bringup`, `run` etc. |
+|**Bringups**| The convention of starting an entire robot hardware and the names for certain common functionalities (`teleop`, `bringup`, `run` etc.) |
 |**Standard practices in coding**| The standard practices when coding Python or C++, which are used by ROS2. |
 
 

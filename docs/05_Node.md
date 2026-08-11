@@ -757,5 +757,5 @@ if __name__ == '__main__':
     - The request should spawn a new turtle at the coordinates $(1, 1)$ at any orientation. The name should be left blank using an empty string `''`.
     - Using the future object, print out the automatically assigned name of the new turtle in the **timer callback** after the response is received.
 
-7. **[Q3a]** Cut and paste the entire `tutorial.py` code on to the Canvas Quiz.
+7. **[Q1]** Cut and paste the entire `tutorial.py` code on to the Canvas Quiz.
     

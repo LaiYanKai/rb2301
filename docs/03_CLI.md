@@ -74,8 +74,8 @@ A node would be a ministry in the country, or a department in the school.
 
 1. On a new terminal we now call `C`, use an appropriate command from the above to determine the nodes that are running. Make sure that `A` is running the turtlesim while `B` is running the teleoperation, as indicated in the previous section.
 
-    - **[Q2a]** What is the command to use to determine all the nodes that are running?
-    - **[Q2b]** What are the names of the nodes that are running?
+    - **[Q1a]** What is the command to use to determine all the nodes that are running?
+    - **[Q1b]** What are the names of the nodes that are running?
 
 
 # 3&emsp;Interfaces
@@ -124,23 +124,23 @@ Note that after receiving the newsletter, no reply to the publisher is required,
 In ROS, the message template is defined in a `.msg` interface file. 
 
 1. Make sure `A` and `B` are running the turtlesim and teleoperation respectively. Using a `ros2 topic` command from the table above, determine all the topics that are active.
-    - **[Q4a]** What is the command?
-    - **[Q4b]** What are all the topics?
+    - **[Q2a]** What is the command?
+    - **[Q2b]** What are all the topics?
 
 2. Now, try to teleoperate with the arrow keys in `B`. With some investigation using the appropriate `ros2 topic` command in `C` to print out all messages passed into a topic, determine the following: 
-    - **[Q4c]** What is the command?
-    - **[Q4d]** What is the topic that passes velocity messages to move the turtle?
-    - **[Q4e]** What is the topic that contains information about the turtle's position and orientation?
+    - **[Q2c]** What is the command to print all the messages for a topic `/a_topic`?
+    - **[Q2d]** What is the topic that passes velocity messages to move the turtle?
+    - **[Q2e]** What is the topic that contains information about the turtle's position and orientation?
 
 3. Using an appropriate `ros2 topic` command, determine the topic's message type, name of the publisher node, and name of the subscriber node for the topics.
-    - **[Q4f]** What is the command to investigate say a topic `/a_topic`?
-    - **[Q4g]** What is the message type of the topic that passes velocity messages to move the turtle?
-    - **[Q4h]** What is the name of the publisher node that publishes the velocity messages?
-    - **[Q4i]** What is the message type of the topic that passes the turtle's position and orientation?
-    - **[Q4j]** What is the name of the publisher node that publishes the turtle's position and orientation?
+    - **[Q2f]** What is the command to investigate say a topic `/a_topic`?
+    - **[Q2g]** What is the message type of the topic that passes velocity messages to move the turtle?
+    - **[Q2h]** What is the name of the publisher node that publishes the velocity messages?
+    - **[Q2i]** What is the message type of the topic that passes the turtle's position and orientation?
+    - **[Q2j]** What is the name of the publisher node that publishes the turtle's position and orientation?
 
 4. Determine which of `ros2 interface` command shows the data fields of topic's message type.
-    - **[Q4k]** What is the command to show the fields in the message type in **Q4g**?
+    - **[Q2k]** What is the command to show the fields in the message type in **Q2g**?
 
 5. Suppose a message with the type `lib/msg/Type` used by a topic `/a_topic` has the following fields:
     ```
@@ -158,7 +158,7 @@ In ROS, the message template is defined in a `.msg` interface file.
     ros2 topic pub -1 /a_topic lib/msg/Type "{position: {x: 0.0, y: 0.0, z: 0.0}, orientation: {x: 0.0, y: 0.0, z: 0.0}}"
     ```
     Notice the nested curly braces for nested fields.
-    - **[Q4l]** What is the command to move the turtle at 1 unit/s for $x$ and $y$, and rotate 1.0 rad/s about the $z$ axis (yaw)?
+    - **[Q2l]** What is the command to move the turtle at 2 unit/s in $x$, 1 unit/s in $y$, and rotate -1.0 rad/s about the $z$ axis (yaw)?
 
     ![](img/rb0341.png)
 
@@ -166,7 +166,7 @@ In ROS, the message template is defined in a `.msg` interface file.
 4. Stop the nodes in `A` and `B` by pressing `Ctrl+C` in both terminals. 
 Both nodes will stop running, which you can verify with the appropriate command. 
 Then, using the same command to find all active topics, determine the global topics that are *always active*, regardless of any running nodes.
-    - **[Q4m]** What are the global topics that are always active?
+    - **[Q2m]** What are the global topics that are always active?
 
 3. When done, rerun the nodes in `A` and `B`. Use the up-arrow key on both terminals to see the previously-run command.
 
@@ -201,14 +201,14 @@ Note that the forms and subsequent outcome are templates that the individual or 
 In ROS, to ensure that the request and response templates are easy to find, the templates are typically defined in the same `.srv` interface file.
 
 1. Make sure `A` and `B` are running the turtlesim and teleoperation respectively. Using the appropriate command, determine all the services that are running.
-    - **[Q5a]** What is the command?
-    - **[Q5b]** What are the services that are running?
+    - **[Q3a]** What is the command?
+    - **[Q3b]** What are the services that are running?
 
 2. Now, on `C`, we try to use a service to spawn the turtle, using the service `/spawn`. In order to do so, we need to know more about the values to use the service. These values are based on the data fields in `/spawn`'s service interface (message template).
-    - **[Q5c]** Use a `ros2 service` command to determine the type of service interface used by the `/spawn` service. What is the command?
-    - **[Q5d]** What is the service interface type?
-    - **[Q5e]** Using a `ros2 interface` command to determine all the data fields in the service interface. What is the command? 
-    - **[Q5f]** The fields above `---` belong to the request, while the fields below belong to the response. Which are the fields that correspond to the response?
+    - **[Q3c]** Use a `ros2 service` command to determine the type of service interface used by the `/spawn` service. What is the command?
+    - **[Q3d]** What is the service interface type?
+    - **[Q3e]** Using a `ros2 interface` command to determine all the data fields in the service interface. What is the command? 
+    - **[Q3f]** The fields above `---` belong to the request, while the fields below belong to the response. Which are the fields that correspond to the response?
 
 3. Suppose the service interface type `lib/srv/Type` used by the `a_service` service looks like this:
     ```
@@ -223,13 +223,13 @@ In ROS, to ensure that the request and response templates are easy to find, the 
     ```
     The command will then send back a response with the field `id`. Notice that the fields used in the command above belong only to the request portion of the message.
 
-    - **[Q5g]** Determine the command to spawn a turtle at $x=2.0$, $y=3.0$, and at zero heading. Label the new turtle with the name `rb2301`.
+    - **[Q3g]** Determine the command to spawn a turtle at $x=3.0$, $y=2.0$, and at $-90\degree$ heading. Label the new turtle with the name `rb2301`.
     
 4. Now we try to remove or "kill" the newly spawned turtle. 
-    - **[Q5h]** What is the service?
-    - **[Q5i]** What is the service interface type?
-    - **[Q5j]** What are the data fields corresponding to the request?
-    - **[Q5k]** What is the command to remove the newly spawned turtle?
+    - **[Q3h]** What is the service?
+    - **[Q3i]** What is the service interface type?
+    - **[Q3j]** What are the data fields corresponding to the request?
+    - **[Q3k]** What is the command to remove the newly spawned turtle?
 
 
 # 6&emsp;Actions
@@ -284,12 +284,12 @@ For example, changing the speed at which a car is cruising down the highway, or 
 
 
 1. Make sure that `A` is running the turtlesim. Using the appropriate `ros2 param` command, determine the first four  parameters from the node `turtlesim`.
-    - **[Q7a]** What is the command?
-    - **[Q7b]** What are the first four parameters of `turtlesim` node?
+    - **[Q4a]** What is the command?
+    - **[Q4b]** What are the first four parameters of `turtlesim` node?
 
 2. Set the blue channel of the background in turtlesim.
-    - **[Q7c]** Determine the command to describe the parameter that sets the background's blue channel.
-    - **[Q7d]** Determine the command to change the blue channel parameter to `0`.
+    - **[Q4c]** Determine the command to describe the parameter that sets the background's blue channel.
+    - **[Q4d]** Determine the command to change the blue channel parameter to `100`.
 
 
 # 8&emsp;Launch
@@ -308,15 +308,14 @@ Since a robot system can be made up of many interacting nodes, it is efficient t
     ```bash
     ros2 launch turtlesim multisim.launch.py
     ```
-    - **[Q8a]** Determine the nodes that are running.
-    - **[Q8b]** Compare the current node names to the node names from the previous sections. Then, determine the namespaces to differentiate the two turtlesim nodes.
+    - **[Q5a]** Determine the nodes that are running.
+    - **[Q5b]** Compare the current node names to the node names from the previous sections. Then, determine the namespaces to differentiate the two turtlesim nodes.
     
 3. Begin teleoperating for the first turtlesim. However, starting turtlesim without the appropriate namespace will cause the teleoperating node to publish into the wrong topic.
-    - **[Q8c]** Determine the correct topic for the first turtlesim to publish velocities into.
-    - **[Q8d]** Determine the `ros2 run` command that starts the teleoperation in the correct namespace for the first turtle. If correctly run, the first turtle will move when teleoperated.
-    - **[Q8e]** Determine the command that starts the teleoperation for the second turtle. 
+    - **[Q5c]** Determine the correct topic for the first turtlesim to publish velocities into.
+    - **[Q5d]** Determine the `ros2 run` command that starts the teleoperation in the correct namespace for the first turtle. If correctly run, the first turtle will move when teleoperated.
+    - **[Q5e]** Determine the command that starts the teleoperation for the second turtle. 
 
 4. Remapping the topics using the `ros2 run` can also be done, although it is not good practice for nodes from different namespaces to communicate with each other (this can create bugs). Nevertheless,
-    - **[Q8f]** Without changing the namespace, determine the `ros2 run` command that remaps the topic of the teleoperation node so that the first turtle can be teleoperated.
-
-    - **[Q8g]** Similarly, determine the command for the second turtle.
+    - **[Q5f]** Without changing the namespace, determine the `ros2 run` command that remaps the topic of the teleoperation node so that the first turtle can be teleoperated.
+    - **[Q5g]** Similarly, determine the command for the second turtle.

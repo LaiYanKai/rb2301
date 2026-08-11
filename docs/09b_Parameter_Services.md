@@ -192,48 +192,60 @@ if __name__ == '__main__':
 
 1. Run `turtlesim` and list all the available services. Then try to get a parameter using the CLI.
 
-    **[Q2a]** What is the `ros2 param` CLI to get the value of the `background_b` parameter?
+    **[Q1a]** What is the `ros2 param` CLI to get the value of the `background_b` parameter?
 
-    **[Q2b]** State the full name for `turtlesim`'s get-parameter service.
+    **[Q1b]** State the full name for `turtlesim`'s get-parameter service.
 
-    **[Q2c]** State the service interface type of the get-parameter service.
+    **[Q1c]** State the service interface type of the get-parameter service.
 
-    **[Q2d]** Copy the output of `ros interface show` for the get-parameter service's interface type.
+    **[Q1d]** Copy the output of `ros interface show` for the get-parameter service's interface type.
 
-    **[Q2e]** What is the `ros2 service` CLI to get the value of the `background_b` and `background_r` parameters? Hint: use `[]` to specify arrays.
+    **[Q1e]** What is the `ros2 service` CLI to get the value of the `background_b` and `background_r` parameters? Hint: use `[]` to specify arrays.
 
 2. Now, try to set a parameter using the CLI.
 
-    **[Q2f]** What is the `ros2 param` CLI to set the value of `background_b` to `100`?
+    **[Q1f]** What is the `ros2 param` CLI to set the value of `background_r` to `200`?
 
-    **[Q2g]** State the full name for `turtlesim`'s set-parameter service.
+    **[Q1g]** State the full name for `turtlesim`'s set-parameter service.
 
-    **[Q2h]** State the service interface type of the set-parameter service.
+    **[Q1h]** State the service interface type of the set-parameter service.
 
-    **[Q2i]** Copy the output of `ros interface show` for the set-parameter service's interface type.
+    **[Q1i]** Copy the output of `ros interface show` for the set-parameter service's interface type.
 
-    **[Q2j]** What is the `ros2 service` CLI to set the value of `background_b` to `100` and `background_r` to `50`? Hint: only the `name`, `type` (integer specified in [B6 ParameterType](#b6parametertype)), and `integer_value` fields are required. Fields may not belong to the same class.
+    **[Q1j]** What is the `ros2 service` CLI to set the value of `background_g` to `100` and `background_b` to `50`? Hint: only the `name`, `type` (integer specified in [B6 ParameterType](#b6parametertype)), and `integer_value` fields are required. Fields may not belong to the same class.
 
 3. Design a node called `parameter_services` that can be run with `ros2 run rb2301_tutorial prm_srvs`.
 
 4. Implement the service clients in the node constructor that can send requests to `turtlesim`'s get-parameter and set-parameter services.
 
-    **[Q2k]** What are the lines of code to implement the service clients?
+    **[Q1k]** What are the lines of code to implement the service clients?
 
 5. Implement a timer callback that runs every 0.5 seconds.
 
-    1. Implement a service request call to obtain the values for `turtlesim`'s `background_b` and `background_r` values.
+    1. Implement a service request call to obtain the values for `turtlesim`'s `background_r` and `background_g` values.
 
-    2. Once the values are obtained (which may not occur in the current call), send another request that increments `background_b`'s value by `50` and `background_r`'s value by `-20`. 
+    2. Once the values are obtained (which may not occur in the current call), send another request that increments `background_r`'s value by `50` and `background_g`'s value by `-40`. 
     The new values should stay within 0 and 255 by using the modulo `%` operator.
 
-    3. Print the new values by replacing `new_r` and `new_b` in the print statement below:
+    3. Print the new values by replacing `new_r` and `new_g` in the print statement below:
 
         ```python
-        print(f'Setting Red({new_r:3d}) and Blue({new_b:3d})')    
+        print(f'Setting Red({new_r:3d}) and Green({new_g:3d})')    
         ```
 
-    **[Q2l]** What is the code for the timer callback? Include the function declaration and the body of the callback.
+    **[Q1l]** What is the code for the timer callback? Include the function declaration and the body of the callback. For example:
+        
+        ```python
+        def timer_callback(self):
+            if self.get_params_future is None:
+                # ...
+            if self.get_params_future.done():
+                # ...
+            if self.set_params_future is None:
+                # ...
+            if self.set_params_future.done():
+                # ...
+        ```
 
 # Appendix A&emsp;Parameter Service Interfaces
 Every parameter service has its own service interface definitions. The service interfaces can be found in the `rcl_interfaces` package. 

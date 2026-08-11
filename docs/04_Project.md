@@ -608,4 +608,4 @@ With the `.gitignore`, starting from the next commit from VSCode, any updates to
 
 6. Using VSCode, push the changes onto your private `rb2301` GitHub repository.
 
-7. **[Q6a]** Zip the project on the workspace level and submit it to the Canvas quiz.
+7. **[Q1]** Zip the project on the workspace level and submit it to the Canvas quiz.

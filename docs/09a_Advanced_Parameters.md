@@ -561,7 +561,7 @@ if __name__ == '__main__':
     | `dbl_arr_v` | Double array. | One-element list containing `0.0`. | 
     | `str_arr_v` | String array. | One-element list containing an empty string `''`. |
     
-    **[Q3a]** What is the code to declare these parameters?
+    **[Q1a]** What is the code to declare these parameters?
     
 3. Design a set parameters callback that prints out every new value to be set, using the print statement below. Replace `prm_name` with the parameter name, and `prm_value` with the newly set value:
 
@@ -569,9 +569,9 @@ if __name__ == '__main__':
     print(f'Setting "{prm_name}": {prm_value}')
     ```
     
-    **[Q3b]** What is the code assign a callback in the node constructor?
+    **[Q1b]** What is the code assign a callback in the node constructor?
 
-    **[Q3c]** What is the code for the callback? Include the line containing the function declaration keyword `def` and the body of the callback.
+    **[Q1c]** What is the code for the callback? Include the line containing the function declaration keyword `def` and the body of the callback.
 
         
 4. Design a timer callback that runs every 1 second, printing out the current value of the `values.str_v` parameter. 
@@ -581,11 +581,11 @@ Use the ROS logger function below by replacing `values.str_v` with the value sto
     self.get_logger().info(f'{str_v_value}')
     ```
 
-    **[Q3d]** What is the code for the timer callback? Include the function declaration and body. Do not include the intialization in the node constructor.
+    **[Q1d]** What is the code for the timer callback? Include the function declaration and body. Do not include the initialization in the node constructor.
 
-    **[Q3e]** What is the `ros2 param` CLI to set `values.str_v` to the string `'string with spaces'` while the node is running?
+    **[Q1e]** What is the `ros2 param` CLI to set `values.str_v` to the string `'string with spaces'` while the node is running?
 
-    **[Q3f]** What is the `ros2 run` CLI to initialize `values.str_v` to the string `'overwritten string'`?
+    **[Q1f]** What is the `ros2 run` CLI to initialize `values.str_v` to the string `'overwritten string'`?
     
 
 # 4&emsp;The YAML File
@@ -794,7 +794,7 @@ As such, only the `integer_a` entry under `node_b` is loaded.
 Suppose that the file `params_a.yaml` is stored in the `params` directory in the package `pkg_a`. Let the workplace be `workspace_a`.
 To load it with the `ros2 run` CLI (make sure to source first),
 ```bash
-ros2 run pkg_a node_a --ros-args --params-file workspace_a/src/pkg_a/params/params_a.yaml
+ros2 run pkg_a node_a --ros-args --param-file workspace_a/src/pkg_a/params/params_a.yaml
 ```
 Of course, the YAML file path is relative to the directory where the terminal is currently in.
 
@@ -829,11 +829,10 @@ Design a YAML file `prms.yaml`, placed in the `params` directory of the `rb2301_
 | `dbl_arr_v` | A three-element array based on the last three numeric digits, divided by 2 (e.g. `[2.0, 2.5, 3.0]` for `456X`) | 
 | `str_arr_v` | An array that is at least one-element long containing your name, with the number of elements corresponding to the number of words in your name (e.g. `['John', 'Doe']` for `John Doe`). |
 
-**[Q4a]** What are the last four characters of your matric number? (e.g. `456X` from `A0123456X`).
+**[Q2a]** What are the last four characters of your matric number? (e.g. `456X` from `A0123456X`).
 
-**[Q4b]** What are the new line(s) to add to the `setup.py` package so that the `params` folder and all of its contents are installed? Remember to build the workspace if the YAML file is created for the first time.
+**[Q2b]** What are the new line(s) to add to the `setup.py` package so that the `params` folder and all of its contents are installed? Remember to build the workspace if the YAML file is created for the first time.
 
-**[Q4c]** What is the `ros2 run` CLI to run the node `parameters`, created in the previous section, with this parameter file? Assume that the terminal is already in the workspace.
+**[Q2c]** What is the `ros2 run` CLI to run the node `parameters`, created in the previous section, with this parameter file? Assume that the terminal is already in the workspace.
 
-
-**[Q4d]** Cut and paste the entire contents of the YAML file.
+**[Q2d]** Cut and paste the entire contents of the YAML file.

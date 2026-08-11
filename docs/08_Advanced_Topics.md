@@ -154,9 +154,9 @@ In this section, we make use of a preset QoS profile to create a topic suitable 
 With this profile, messages are allowed to be lost in a lossy network between a robot and a remote computer. 
 In other words, no attempts are made to re-send the lost messages, ensuring that the most recent sensor data are received more frequently.
 
-1. **[Q2a]** What is the **preset profile** for transmitting sensor data, which looks like `qos_profile_a` and can be imported from `rclpy.qos`?
-2. **[Q2b]** What is the name of the QoS **policy** that when adjusted, allows messages to be lost in a lossy network?
-3. **[Q2c]** What is the **value** of this policy, that allows messages to be lost in a lossy network? Verify that the preset profile uses this value.
+1. **[Q1a]** What is the **preset profile** for transmitting sensor data, which looks like `qos_profile_a` and can be imported from `rclpy.qos`?
+2. **[Q1b]** What is the name of the QoS **policy** that when adjusted, allows messages to be lost in a lossy network?
+3. **[Q1c]** What is the **value** of this policy, that allows messages to be lost in a lossy network? Verify that the preset profile uses this value.
 
 4. In `publishers.py`:
     1. Import the profile. Replace `qos_profile_a`:
@@ -189,9 +189,9 @@ In other words, no attempts are made to re-send the lost messages, ensuring that
 In this section, we use a custom QoS profile to implement a latched topic.
 A latched connection persists some published messages so that late-joining subscribers will be able to receive the past messages.
 
-1. **[Q3a]** What is the name of the QoS **policy** that allows published messages to persist for late joining subscribers? 
+1. **[Q2a]** What is the name of the QoS **policy** that allows published messages to persist for late joining subscribers? 
 
-2. **[Q3b]** What is the **value** that this QoS policy should have to persist the messages?
+2. **[Q2b]** What is the **value** that this QoS policy should have to persist the messages?
 
 3. In `publishers.py`:
     1. Import the correct policy by replacing `PolicyA` in the code below. You may add on to the previous import statement by using commas:
@@ -252,9 +252,9 @@ A latched connection persists some published messages so that late-joining subsc
 
 7. After about a second, `Ctrl+C` in both terminals `A` and `B`.
 
-8. **[Q3c]** In terminal `B`, scroll to the top and determine the number of past messages that were received by the subscriber when the subscriber is first run. 
+8. **[Q2c]** In terminal `B`, scroll to the top and determine the number of past messages that were received by the subscriber when the subscriber is first run. 
 
-9. **[Q3d]** Verify that this number agrees with two other policies in the profile. These policies will determine the number of past messages persisted by the publisher (provided that both subscriber and publisher policies are identical). What are these two policies?
+9. **[Q2d]** Verify that this number agrees with two other policies in the profile. These policies will determine the number of past messages persisted by the publisher (provided that both subscriber and publisher policies are identical). What are these two policies?
 
 # 4&emsp;Shallow Depth Policy for Busy Subscribers
 
@@ -292,7 +292,7 @@ By keeping the depth shallow, the queue can be shortened, so that the last messa
 
 5. Now, adjust the depth in `qos_profile_shallow`, so that the message copied by the shallow handle is likely to be more recent. Run the nodes to verify. 
 
-6. **[Q4a]** Determine the best depth so that the most recent message is likely to be copied. The answer may differ from the ideal value due to unexpected behavior from the middleware.
+6. **[Q3]** Determine the smallest depth so that the most recent message is likely to be copied. The answer may differ from the ideal value due to unexpected behavior from the middleware.
 
 # 5&emsp;Ensure Messages Arrive Before Use
 It is good practice to check if a message has arrived before a callback uses it. Otherwise, unintended behaviors may occur or errors may be thrown. 
@@ -360,11 +360,11 @@ If the subscriber has a more demanding policy than the publisher, communication 
 
 4. `Ctrl+C` both terminals after about a second.
 
-5. **[Q6a]** What is the full warning message from terminal `A`? 
+5. **[Q4a]** What is the full warning message from terminal `A`? 
 
-6. **[Q6b]** What is the full warning message from terminal `B`?
+6. **[Q4b]** What is the full warning message from terminal `B`?
 
-7. **[Q6c]** Repeat the steps for the other three pairs where communication can occur. Determine the pair(s) where the subscriber is **unable** to receive latched messages?
+7. **[Q4c]** Rerun the nodes for the other three pairs of policies. Among the four pairs of policies, determine the pair(s) of policies where the subscriber is **unable** to receive **latched** messages?
 
 ## 6.2&emsp;Reliability Policy
 The publisher and subscriber must have compatible reliability policies in order for messages to be sent:
@@ -386,6 +386,6 @@ If the subscriber expects the publisher to resend lost messages (`RELIABLE`) but
 
 4. `Ctrl+C` both terminals after about a second.
 
-5. **[Q7a]** What is the full warning message from terminal `A`? 
+5. **[Q5a]** What is the full warning message from terminal `A`? 
 
-6. **[Q7b]** What is the full warning message from terminal `B`?
+6. **[Q5b]** What is the full warning message from terminal `B`?
