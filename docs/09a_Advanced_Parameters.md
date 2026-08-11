@@ -126,12 +126,11 @@ from rclpy.node import Node
 
 # NODE CLASS
 class NodeA(Node):
-    
-    # 2. NODE PROPERTIES
-
     def __init__(self):
-        # 3. NODE CONSTRUCTOR
         super().__init__('node_a')
+        # 2. NODE PROPERTIES
+
+        # 3. NODE HANDLES
 
     # 4. NODE CALLBACKS
 
@@ -193,9 +192,7 @@ from rcl_interfaces.msg import ParameterDescriptor, IntegerRange
 class NodeA(Node):
     
     def __init__(self):
-        # 3. NODE CONSTRUCTOR
         super().__init__('node_a')
-        
         desc_blue = ParameterDescriptor(
             description = 'the color blue, constrained',
             additional_constraints = 'some help text for some other constraint',
@@ -256,7 +253,6 @@ from rcl_interfaces.msg import ParameterDescriptor, IntegerRange
 class NodeA(Node):
     
     def __init__(self):
-        # 3. NODE CONSTRUCTOR
         super().__init__('node_a')
         
         desc_blue = ParameterDescriptor(
@@ -362,7 +358,6 @@ from rclpy import Parameter as Param
 class NodeA(Node):
     
     def __init__(self):
-        # 3. NODE CONSTRUCTOR
         super().__init__('node_a')
         
         desc_blue = ParameterDescriptor(
@@ -477,7 +472,6 @@ from rclpy import Parameter as Param
 class NodeA(Node):
     
     def __init__(self):
-        # 3. NODE CONSTRUCTOR
         super().__init__('node_a')
         
         desc_blue = ParameterDescriptor(

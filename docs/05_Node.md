@@ -76,12 +76,11 @@ from rclpy.node import Node
 
 # NODE CLASS
 class SomeROSNode(Node):
-    
-    # 2. NODE PROPERTIES
-
     def __init__(self):
         super().__init__('some_ros_node')
-        # 3. NODE CONSTRUCTOR
+        # 2. NODE PROPERTIES
+
+        # 3. NODE HANDLES
 
     # 4. NODE CALLBACKS
 
@@ -101,8 +100,8 @@ if __name__ == '__main__':
 | | Where | Purpose |
 |-|-|-|
 | 1. | **Import** | Import statements, to be appended after the first two import lines. Any libraries that are imported must be included in `package.xml`. |
-| 2. | **Node Properties** | The node is implemented as a class derived from the ROS2 `Node` class. Put variables at this location if the variables has to be read and written across different callbacks. |
-| 3. | **Node Constructor** | Initializes handles (variables) to timers, subscribers, publishers, service clients, service servers, etc. |
+| 2. | **Node Properties** | The node is implemented as a class derived from the ROS2 `Node` class. Initialize variables at this location if the variables has to be read and written across different callbacks. |
+| 3. | **Node Handles** | Initializes handles (variables) to timers, subscribers, publishers, service clients, service servers, etc. |
 | 4. | **Node Callbacks** | Place callback functions here. Callback functions are class methods, like the `__init__` constructor. |
 | 5. | **How to Use** | Contains example code to work with the handles. |
 
@@ -130,7 +129,7 @@ The following beginner Python syntax is suggested:
     </tr>
     <tr>
         <td>3.</td>
-        <td>Node Constructor</td>
+        <td>Node Handles</td>
         <td>
             Initialize the handle to the subscriber.
             <ul>
@@ -165,13 +164,14 @@ from rclpy.node import Node
 
 # NODE CLASS
 class TimingNode(Node):
-    
-    # 2. NODE PROPERTIES
 
     def __init__(self):
         super().__init__('timing_node')
-        # 3. NODE CONSTRUCTOR
+        # 2. NODE PROPERTIES
+
+        # 3. NODE HANDLES
         self.timer = self.create_timer(0.5, self.timer_callback)
+
 
     # 4. NODE CALLBACKS
     def timer_callback(self):
@@ -221,7 +221,7 @@ The following beginner Python syntax is suggested:
     </tr>
     <tr>
         <td>3.</td>
-        <td>Node Constructor</td>
+        <td>Node Handles</td>
         <td>
             Initialize the handle to the subscriber.
             <ul>
@@ -263,22 +263,22 @@ from nav_msgs.msg import Odometry
 
 # NODE CLASS
 class Controller(Node):
-    
-    # 2. NODE PROPERTIES
-    odom_msg = None
 
     def __init__(self):
         super().__init__('controller')
-        # 3. NODE CONSTRUCTOR
+        # 2. NODE PROPERTIES
+        self.odom_msg = None
+
+        # 3. NODE HANDLES
         self.odom_sub = self.create_subscription(Odometry, '/odom', self.odom_sub_callback, 10)
 
     # 4. NODE CALLBACKS
     def odom_sub_callback(self, msg):
-        odom_msg = msg
+        self.odom_msg = msg
         
     def some_function(self):
         # 5. HOW TO USE
-        print(odom_msg.pose.pose.position.x)
+        print(self.odom_msg.pose.pose.position.x)
 
 # MAIN BOILER PLATE
 def main(args=None):
@@ -321,7 +321,7 @@ The following beginner Python syntax is suggested:
     </tr>
     <tr>
         <td>3.</td>
-        <td>Node Constructor</td>
+        <td>Node Handles</td>
         <td>
             Initialize the handle to the publisher.
             <ul>
@@ -361,11 +361,12 @@ from geometry_msgs.msg import Point
 # NODE CLASS
 class Behavior(Node):
     
-    # 2. NODE PROPERTIES
 
     def __init__(self):
         super().__init__('behavior')
-        # 3. NODE CONSTRUCTOR
+        # 2. NODE PROPERTIES
+
+        # 3. NODE HANDLES
         self.point_pub = self.create_publisher(Point, '/goal', 10)
 
     # 4. NODE CALLBACKS
@@ -417,7 +418,7 @@ The following beginner Python syntax is suggested:
     </tr>
     <tr>
         <td>3.</td>
-        <td>Node Constructor</td>
+        <td>Node Handles</td>
         <td>
             Initialize the handle to the service server...
             <ul>
@@ -457,12 +458,11 @@ from nav_msgs.srv import GetPlan
 
 # NODE CLASS
 class Planner(Node):
-    
-    # 2. NODE PROPERTIES
-
     def __init__(self):
         super().__init__('behavior')
-        # 3. NODE CONSTRUCTOR
+        # 2. NODE PROPERTIES
+
+        # 3. NODE HANDLES
         self.get_plan_srv = self.create_service(GetPlan, '/get_plan', self.get_plan_callback)
 
     # 4. NODE CALLBACKS
@@ -524,7 +524,7 @@ service_a_future = None
     </tr>
     <tr>
         <td>3.</td>
-        <td>Node Constructor</td>
+        <td>Node Handles</td>
         <td>
             Initialize the handle to the client.
             <ul>
@@ -575,13 +575,12 @@ from nav_msgs.srv import GetPlan
 
 # NODE CLASS
 class Behavior(Node):
-    
-    # 2. NODE PROPERTIES
-    get_plan_future = None
-
     def __init__(self):
         super().__init__('behavior')
-        # 3. NODE CONSTRUCTOR
+        # 2. NODE PROPERTIES
+        self.get_plan_future = None
+
+        # 3. NODE HANDLES
         self.get_plan_cli = self.create_client(GetPlan, '/get_plan')
 
     # 4. NODE CALLBACKS
@@ -654,7 +653,7 @@ The following beginner Python syntax is suggested:
     </tr>
     <tr>
         <td>3.</td>
-        <td>Node Constructor</td>
+        <td>Node Handles</td>
         <td>
             Declare the parameter, so the node knows that it needs to access this parameter in its life time.
             <ul>
@@ -694,11 +693,12 @@ from rclpy.node import Node
 # NODE CLASS
 class SomeNode(Node):
     
-    # 2. NODE PROPERTIES
 
     def __init__(self):
         super().__init__('some_node')
-        # 3. NODE CONSTRUCTOR
+        # 2. NODE PROPERTIES
+
+        # 3. NODE HANDLES
         self.speed_param = self.declare_parameter('speed', 2.0)
 
     # 4. NODE CALLBACKS
