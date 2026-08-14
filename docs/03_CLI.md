@@ -262,7 +262,7 @@ See https://design.ros2.org/articles/an_actions.html for more information.
 | | Command | Description |
 | - | - | - |
 | 1. | `ros2 param delete /a_node a_dyn_param` | Deletes a dynamically generated parameter `a_dyn_param` from the node `/a_node`. Rarely used. |
-| 2. | `ros2 describe /a_node a_param` | Describes the data type, constraints and information about the parameter `a_param` from the `/a_node` node. |
+| 2. | `ros2 param describe /a_node a_param` | Describes the data type, constraints and information about the parameter `a_param` from the `/a_node` node. |
 | 3. | `ros2 param dump /a_node` | Prints out all the parameters from a node `/a_node` in YAML file format. |
 | 4. | `ros2 param get /a_node a_param` | Gets the value in the parameter `a_param` from the node `/a_node`. |
 | 5. | `ros2 param list` | Lists all parameters from all existing nodes. |
