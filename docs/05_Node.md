@@ -592,7 +592,7 @@ class Behavior(Node):
             request.start = start
             request.goal = goal
             request.tolerance = 0.0
-            self.get_plan_cli.call_async(request)
+            self.get_plan_future = self.get_plan_cli.call_async(request)
 
     def function_to_use_response(self):
         path = []
