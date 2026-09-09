@@ -97,14 +97,15 @@ from rclpy.node import Node
 from rcl_interfaces.srv import GetParameters
 
 class NodeA(Node):
-    get_params_future = None
 
     def __init__(self):
         super().__init__('node_a')
 
         self.get_params_cli = self.create_client(GetParameters, '/node_b/get_parameters')
-
+    
         self.timer = self.create_timer(0.5, self.timer_callback)
+
+        self.get_params_future = None
 
     def timer_callback(self):
         if self.get_params_future is None:
@@ -142,7 +143,6 @@ from rcl_interfaces.msg import ParameterType, Parameter
 from rcl_interfaces.srv import SetParameters
 
 class NodeA(Node):
-    set_params_future = None
 
     def __init__(self):
         super().__init__('node_a')
@@ -150,6 +150,8 @@ class NodeA(Node):
         self.get_params_cli = self.create_client(SetParameters, '/node_b/set_parameters')
 
         self.timer = self.create_timer(0.5, self.timer_callback)
+
+        self.set_params_future = None
 
     def timer_callback(self):
         if self.set_params_future is None:
@@ -235,17 +237,17 @@ if __name__ == '__main__':
 
     **[Q1l]** What is the code for the timer callback? Include the function declaration and the body of the callback. For example:
         
-        ```python
-        def timer_callback(self):
-            if self.get_params_future is None:
-                # ...
-            if self.get_params_future.done():
-                # ...
-            if self.set_params_future is None:
-                # ...
-            if self.set_params_future.done():
-                # ...
-        ```
+    ```python
+    def timer_callback(self):
+        if self.get_params_future is None:
+            # ...
+        if self.get_params_future.done():
+            # ...
+        if self.set_params_future is None:
+            # ...
+        if self.set_params_future.done():
+            # ...
+    ```
 
 # Appendix A&emsp;Parameter Service Interfaces
 Every parameter service has its own service interface definitions. The service interfaces can be found in the `rcl_interfaces` package. 

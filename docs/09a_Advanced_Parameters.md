@@ -420,7 +420,7 @@ The following table shows how to assign a callback immediately before parameters
 The callback can be used to copy a parameter value like in topic callbacks.
 The difference is that topic callbacks process one message at a time, while parameter callbacks can process multiple parameters at once.
 
-The callback can return with a failure, in which case all of the listed parameters would not be set. This can occur if the developer decides that the value contained in a parameter is not invalid.
+The callback can return with a failure, in which case all of the listed parameters would not be set. This can occur if the developer decides that the value contained in a parameter is invalid.
 
 <table><tbody>
     <tr>
@@ -505,7 +505,6 @@ class NodeA(Node):
         return SetParametersResult(successful=True)
 
     def timer_callback(self):
-        # 5. HOW TO USE 
         blue_param_value = self.get_parameter('color.blue').value
         new_blue_param = Param(
             'color.blue',
