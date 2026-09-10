@@ -400,7 +400,7 @@ if __name__ == '__main__':
 2. Create a subscriber to the `/turtle1/pose` topic.
 
 3. In the **subscriber callback**, record the `x`, `y`, and `theta` data fields from every received message into a `data.txt` file. The data should be recorded in tabular format. 
-The first column should be `x`, the second column should be `y`, and the third column should be `z`. 
+The first column should be `x`, the second column should be `y`, and the third column should be `theta`. 
 A new row should be created for every message.
 
 4. Make sure that the `tutorial` node is modified based on the tasks in the previous chapter in [05_Node.md](05_Node.md). Crucially, the turtle should **move back and forth** when the `tutorial` node is run.
